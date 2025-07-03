@@ -6,3 +6,6 @@
 https://nsknews.info/materials/mobilnuyu-igru-odinnadtsatoe-leto-sozdali-dlya-znakomstva-s-ngtu/
 https://www.nstu.ru/announcements/news_more?idnews=157141
 https://www.nstu.ru/announcements/news_more?idnews=157681
+
+Для разработчиков-энтузиастов:  
+При желании помочь проекту своими идеями вы можете скачать репозиторий игры, внести изменения и отправить запрос на рассмотрение. Если Наша команда примет отправленные файлы, то разработчик будет упомянут в титрах игры и получит свою статуэтку в отдельной локации.
