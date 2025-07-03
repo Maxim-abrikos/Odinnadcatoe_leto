@@ -33,7 +33,7 @@ namespace StarterAssets
             Buttons[0].onClick.AddListener(() => ChangeWay("GlavnZal", 0));
             Buttons[1].onClick.AddListener(() => ChangeWay("GlavnZal1", 1));
             Buttons[2].onClick.AddListener(() => ChangeWay("GlavnZal2", 2));
-
+            Buttons[3].onClick.AddListener(() => ChangeWay("GlavnZal3", 3));
         }
 
         private void ChangeWay(string way, int level)

@@ -101,7 +101,7 @@ internal class Note_T_1_1 : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
                 WrongAnswer[Index].enabled = false;
         }
-            return;
+        return;
     }
 
 

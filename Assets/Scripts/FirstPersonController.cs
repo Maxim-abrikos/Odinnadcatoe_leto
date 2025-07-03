@@ -28,17 +28,17 @@ namespace StarterAssets
 	{
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
-		public float MoveSpeed = 5.5f;
+		private float MoveSpeed = 5.5f;
 		[Tooltip("Sprint speed of the character in m/s")]
-		public float SprintSpeed = 8.0f;
+		private float SprintSpeed = 8.0f;
 		[Tooltip("Rotation speed of the character")]
-		public float RotationSpeed = 1.0f;
+		private float RotationSpeed = 1.0f;
 		[Tooltip("Acceleration and deceleration")]
-		public float SpeedChangeRate = 10.0f;
+		private float SpeedChangeRate = 10.0f;
 
 		[Space(10)]
 		[Tooltip("The height the player can jump")]
-		public float JumpHeight = 1.2f;
+		private float JumpHeight = 1.2f;
 		[Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
 		public float Gravity = -15.0f;
 
@@ -89,10 +89,10 @@ namespace StarterAssets
 		private Camera _mainCamera;
 
 		private const float _threshold = 0.01f;
-		internal int[] Collected_Coins = new int[] { 0, 0, 0 };
-		internal int[] Collected_Stars_T = new int[3] { 0, 0,0 };
-        internal int[] Collected_Stars_G = new int[3] { 0, 0,0 };
-        internal int[,] Collected_Stars_In_Disciplines = new int[3, 10] { {0,0,0,0,0,0,0,0,0,0 },{0,0,0,0,0,0,0,0,0,0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
+		internal int[] Collected_Coins = new int[] { 0, 0, 0, 0 };
+		internal int[] Collected_Stars_T = new int[4] { 0, 0,0,0 };
+        internal int[] Collected_Stars_G = new int[4] { 0, 0,0,0 };
+        internal int[,] Collected_Stars_In_Disciplines = new int[4, 10] { {0,0,0,0,0,0,0,0,0,0 },{0,0,0,0,0,0,0,0,0,0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } };
 
 
 
@@ -108,7 +108,8 @@ namespace StarterAssets
 	    { "Startovaya","Мне нужно попасть в лабиринт. Логично предположить, что он находится за теми воротами, но ничего страшного не произойдёт, если я задержусь тут на несколько минут."},
 			{"GlavnZal", "Здесь собраны задания различных дисциплин первого курса НГТУ. Уже не терпится начать свой путь в науку!" },
 			{"GlavnZal1","Будет непросто, но оно того стоит. Я сам выбрал этот путь и я должен дойти до конца... А ещё я хочу печенье." },
-			{"GlavnZal2","Эмблема в виде абрикоса должна что-то значить. Я обязан выяснить, что к чему. Жду не дождусь получить свою первую звезду и первую монетку." } };
+			{"GlavnZal2","Эмблема в виде абрикоса должна что-то значить. Я обязан выяснить, что к чему. Жду не дождусь получить свою первую звезду и первую монетку." },
+        {"GlavnZal3","Естественные науки - мой конёк. Я даже не сомневаюсь, что смогу достойно проявить себя в направлениях физики, химии и биологии" }};
 		
 
         private Vector3 playerPosition;
@@ -161,6 +162,10 @@ namespace StarterAssets
                 Collected_Stars_T[2] = PlayerPrefs.GetInt("ЗвёздыТ3");
             if (PlayerPrefs.HasKey("ЗвёздыГ3"))
                 Collected_Stars_G[2] = PlayerPrefs.GetInt("ЗвёздыГ3");
+            if (PlayerPrefs.HasKey("ЗвёздыТ4"))
+                Collected_Stars_T[3] = PlayerPrefs.GetInt("ЗвёздыТ4");
+            if (PlayerPrefs.HasKey("ЗвёздыГ4"))
+                Collected_Stars_G[3] = PlayerPrefs.GetInt("ЗвёздыГ4");
 
             if (PlayerPrefs.HasKey("Монетки1"))
 				Collected_Coins[0] = PlayerPrefs.GetInt("Монетки1");
@@ -168,6 +173,8 @@ namespace StarterAssets
                 Collected_Coins[1] = PlayerPrefs.GetInt("Монетки2");
             if (PlayerPrefs.HasKey("Монетки3"))
                 Collected_Coins[2] = PlayerPrefs.GetInt("Монетки3");
+            if (PlayerPrefs.HasKey("Монетки3"))
+                Collected_Coins[3] = PlayerPrefs.GetInt("Монетки4");
 
             if (PlayerPrefs.HasKey("ТВиМС"))
 				Collected_Stars_In_Disciplines[0, 0] = PlayerPrefs.GetInt("ТВиМС");
@@ -235,6 +242,30 @@ namespace StarterAssets
                 Collected_Stars_In_Disciplines[2, 9] = PlayerPrefs.GetInt("29");
 
 
+
+            if (PlayerPrefs.HasKey("30"))
+                Collected_Stars_In_Disciplines[3, 0] = PlayerPrefs.GetInt("30");
+            if (PlayerPrefs.HasKey("31"))
+                Collected_Stars_In_Disciplines[3, 1] = PlayerPrefs.GetInt("31");
+            if (PlayerPrefs.HasKey("32"))
+                Collected_Stars_In_Disciplines[3, 2] = PlayerPrefs.GetInt("32");
+            if (PlayerPrefs.HasKey("33"))
+                Collected_Stars_In_Disciplines[3, 3] = PlayerPrefs.GetInt("33");
+            if (PlayerPrefs.HasKey("34"))
+                Collected_Stars_In_Disciplines[3, 4] = PlayerPrefs.GetInt("34");
+            if (PlayerPrefs.HasKey("35"))
+                Collected_Stars_In_Disciplines[3, 5] = PlayerPrefs.GetInt("35");
+            if (PlayerPrefs.HasKey("36"))
+                Collected_Stars_In_Disciplines[3, 6] = PlayerPrefs.GetInt("36");
+            if (PlayerPrefs.HasKey("37"))
+                Collected_Stars_In_Disciplines[3, 7] = PlayerPrefs.GetInt("37");
+            if (PlayerPrefs.HasKey("38"))
+                Collected_Stars_In_Disciplines[3, 8] = PlayerPrefs.GetInt("38");
+            if (PlayerPrefs.HasKey("39"))
+                Collected_Stars_In_Disciplines[3, 9] = PlayerPrefs.GetInt("39");
+
+
+
             if (PlayerPrefs.HasKey("Level"))
 				LEVEL = PlayerPrefs.GetInt("Level");
 
@@ -279,9 +310,11 @@ namespace StarterAssets
 		bool over = false;
         private void Update()
 		{
-			JumpAndGravity();
-			GroundedCheck();
-			Move();
+
+				JumpAndGravity();
+				GroundedCheck();
+				Move();
+
 			if (over)
 				CoinsSrarsPanel.text = "Монетки: " + Collected_Coins[LEVEL].ToString() + "\n" + "Звёзды: " + (Enumerable.Range(0, Collected_Stars_In_Disciplines.GetLength(1))
 						 .Select(j => Collected_Stars_In_Disciplines[LEVEL, j])
@@ -299,30 +332,6 @@ namespace StarterAssets
 				this.RotationSpeed = 0.0f;
 		}
 
-		//private void Get_Paused()
-		//{
-		//	if ((Input.GetKeyDown(KeyCode.Escape)))
-		//	{
-		//		if (Pause)
-		//		{
-		//			PauseMenu.enabled = true;
-		//			Time.timeScale = 0.0f;
-		//			this.RotationSpeed = 0.0f;
-		//			Pause = !Pause;
-		//			AudioListener.pause = true;
-		//			Cursor.visible = true;
-		//		}
-		//		else
-		//		{
-		//			PauseMenu.enabled = false;
-		//			Time.timeScale = 1.0f;
-		//			this.RotationSpeed = 1.0f;
-		//			Pause = !Pause;
-		//			AudioListener.pause = false;
-		//			Cursor.visible = false;
-		//		}
-		//	}
-		//}
 
 		private void LateUpdate()
 		{
@@ -482,9 +491,14 @@ namespace StarterAssets
             PlayerPrefs.SetInt("ЗвёздыГ2", Collected_Stars_G[1]);
             PlayerPrefs.SetInt("ЗвёздыТ3", Collected_Stars_T[2]);
             PlayerPrefs.SetInt("ЗвёздыГ3", Collected_Stars_G[2]);
+            PlayerPrefs.SetInt("ЗвёздыТ4", Collected_Stars_T[3]);
+            PlayerPrefs.SetInt("ЗвёздыГ4", Collected_Stars_G[3]);
+
             PlayerPrefs.SetInt("Монетки1", Collected_Coins[0]);
             PlayerPrefs.SetInt("Монетки2", Collected_Coins[1]);
             PlayerPrefs.SetInt("Монетки3", Collected_Coins[2]);
+            PlayerPrefs.SetInt("Монетки4", Collected_Coins[3]);
+
             PlayerPrefs.SetInt("ТВиМС", Collected_Stars_In_Disciplines[0, 0]);
 			PlayerPrefs.SetInt("Химия", Collected_Stars_In_Disciplines[0, 1]);
 			PlayerPrefs.SetInt("МатАнализ", Collected_Stars_In_Disciplines[0, 2]);
@@ -518,6 +532,19 @@ namespace StarterAssets
             PlayerPrefs.SetInt("27+", Collected_Stars_In_Disciplines[2, 7]);
             PlayerPrefs.SetInt("28", Collected_Stars_In_Disciplines[2, 8]);
             PlayerPrefs.SetInt("29", Collected_Stars_In_Disciplines[2, 9]);
+
+
+            PlayerPrefs.SetInt("30", Collected_Stars_In_Disciplines[3, 0]);
+            PlayerPrefs.SetInt("31", Collected_Stars_In_Disciplines[3, 1]);
+            PlayerPrefs.SetInt("32", Collected_Stars_In_Disciplines[3, 2]);
+            PlayerPrefs.SetInt("33", Collected_Stars_In_Disciplines[3, 3]);
+            PlayerPrefs.SetInt("34", Collected_Stars_In_Disciplines[3, 4]);
+            PlayerPrefs.SetInt("35", Collected_Stars_In_Disciplines[3, 5]);
+            PlayerPrefs.SetInt("36", Collected_Stars_In_Disciplines[3, 6]);
+            PlayerPrefs.SetInt("37", Collected_Stars_In_Disciplines[3, 7]);
+            PlayerPrefs.SetInt("38", Collected_Stars_In_Disciplines[3, 8]);
+            PlayerPrefs.SetInt("39", Collected_Stars_In_Disciplines[3, 9]);
+
 
             PlayerPrefs.SetInt("Level", LEVEL);
             PlayerPrefs.Save();
@@ -531,9 +558,14 @@ namespace StarterAssets
             PlayerPrefs.SetInt("ЗвёздыГ2", Collected_Stars_G[1]);
             PlayerPrefs.SetInt("ЗвёздыТ3", Collected_Stars_T[2]);
             PlayerPrefs.SetInt("ЗвёздыГ3", Collected_Stars_G[2]);
+            PlayerPrefs.SetInt("ЗвёздыТ4", Collected_Stars_T[3]);
+            PlayerPrefs.SetInt("ЗвёздыГ4", Collected_Stars_G[3]);
+
+
             PlayerPrefs.SetInt("Монетки1", Collected_Coins[0]);
             PlayerPrefs.SetInt("Монетки2", Collected_Coins[1]);
             PlayerPrefs.SetInt("Монетки3", Collected_Coins[2]);
+            PlayerPrefs.SetInt("Монетки4", Collected_Coins[3]);
 
 
             PlayerPrefs.SetInt("ТВиМС", Collected_Stars_In_Disciplines[0, 0]);
@@ -566,9 +598,21 @@ namespace StarterAssets
             PlayerPrefs.SetInt("24", Collected_Stars_In_Disciplines[2, 4]);
             PlayerPrefs.SetInt("25", Collected_Stars_In_Disciplines[2, 5]);
             PlayerPrefs.SetInt("26", Collected_Stars_In_Disciplines[2, 6]);
-            PlayerPrefs.SetInt("27+", Collected_Stars_In_Disciplines[2, 7]);
+            PlayerPrefs.SetInt("27", Collected_Stars_In_Disciplines[2, 7]);
             PlayerPrefs.SetInt("28", Collected_Stars_In_Disciplines[2, 8]);
             PlayerPrefs.SetInt("29", Collected_Stars_In_Disciplines[2, 9]);
+
+
+            PlayerPrefs.SetInt("30", Collected_Stars_In_Disciplines[3, 0]);
+            PlayerPrefs.SetInt("31", Collected_Stars_In_Disciplines[3, 1]);
+            PlayerPrefs.SetInt("32", Collected_Stars_In_Disciplines[3, 2]);
+            PlayerPrefs.SetInt("33", Collected_Stars_In_Disciplines[3, 3]);
+            PlayerPrefs.SetInt("34", Collected_Stars_In_Disciplines[3, 4]);
+            PlayerPrefs.SetInt("35", Collected_Stars_In_Disciplines[3, 5]);
+            PlayerPrefs.SetInt("36", Collected_Stars_In_Disciplines[3, 6]);
+            PlayerPrefs.SetInt("37", Collected_Stars_In_Disciplines[3, 7]);
+            PlayerPrefs.SetInt("38", Collected_Stars_In_Disciplines[3, 8]);
+            PlayerPrefs.SetInt("39", Collected_Stars_In_Disciplines[3, 9]);
 
 
             PlayerPrefs.SetInt("Level", LEVEL);

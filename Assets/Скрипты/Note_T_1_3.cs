@@ -153,12 +153,11 @@ namespace StarterAssets
         }
 
 
-        void Update()
+        public void Update()
         {
             if (Index < 1 && CanSolve)
             {
                 StartCoroutine(Show_Task());
-                //StartCoroutine(Check_Answer());
             }
             else
             {
@@ -185,10 +184,7 @@ namespace StarterAssets
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    //Pointers[Index].enabled = false;
-                    //WrongAnswer.enabled = false;
                     WrongAnswer.enabled = false;
-                    //WrongAnswer.enabled = false;
                 }
             }
             return;
@@ -208,19 +204,15 @@ namespace StarterAssets
                     Cursor.visible = true;
                     Costyl = false;
                     Time.timeScale = 0;
-                    //WrittenAnswer.gameObject.SetActive(true);
                     WrittenAnswer.gameObject.SetActive(true);
                     Cursor.lockState = CursorLockMode.Confined;
                     this._FirstPersonController.ChangeRS(true);
                     CheckButton.gameObject.SetActive(true);
                     if (WrittenAnswer.gameObject.activeSelf)
                     {
-                        // Set focus on the input field
                         WrittenAnswer.Select();
                         WrittenAnswer.ActivateInputField();
                     }
-
-
                 }
                 else if (Action && Costyl == false)
                 {
@@ -237,11 +229,9 @@ namespace StarterAssets
                     CheckButton.gameObject.SetActive(false);
                     if (WrittenAnswer.gameObject.activeSelf)
                     {
-                        // Set focus on the input field
                         WrittenAnswer.Select();
                         WrittenAnswer.ActivateInputField();
                     }
-                    //Cursor.lockState = CursorLockMode.Locked;
                 }
             }
             yield return null;
@@ -304,12 +294,6 @@ namespace StarterAssets
                     WrittenAnswer.ActivateInputField();
                 }
                 WrongAnswer.enabled = false;
-                //for (int l = 0; l < Right.Length; l++)
-                //{
-                //    Right[l].enabled = false;
-                //}
-                //if (Index < 4)
-                //    Pointers[Index].enabled = false;
             }
         }
 

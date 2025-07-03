@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System;
 using TMPro;
 using UnityEngine;
@@ -27,6 +27,13 @@ namespace StarterAssets
 
         internal int Current_level = 0;
 
+
+        void Awake()
+        {
+            Application.targetFrameRate = 120;        // или -1, если хочешь полностью снять ограничение
+            QualitySettings.vSyncCount = 0;           // отключить VSync
+            Application.runInBackground = true;
+        }
 
         //public int[] _Stars= new int[2] { 0,0};
         void Start()
@@ -157,6 +164,10 @@ namespace StarterAssets
             if (Current_level == 2)
             {
                 Statistics.text = "Звёзд собрано:" + "\nМат. анализ " + (_FirstPersonController.Collected_Stars_In_Disciplines[2, 0] + _FirstPersonController.Collected_Stars_In_Disciplines[2, 1]) + "\nГрафика " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 2] + "\nФизика " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 3] + "\nПрограммирование " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 4] + "\nИстория России " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 5] + "\nИстория мира " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 6] + "\nЭкономика " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 7] + "\nПраво " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 8] + "\nЛитература " + _FirstPersonController.Collected_Stars_In_Disciplines[2, 9];
+            }
+            if (Current_level == 3)
+            {
+                Statistics.text = "Звёзд собрано:" + "\nФизика: " + (_FirstPersonController.Collected_Stars_In_Disciplines[3, 0] + _FirstPersonController.Collected_Stars_In_Disciplines[3, 1] +_FirstPersonController.Collected_Stars_In_Disciplines[3, 2] + _FirstPersonController.Collected_Stars_In_Disciplines[3, 3] + _FirstPersonController.Collected_Stars_In_Disciplines[3, 4]) + "\nХимия+Биология : " + (_FirstPersonController.Collected_Stars_In_Disciplines[3, 5] + _FirstPersonController.Collected_Stars_In_Disciplines[3, 6] + _FirstPersonController.Collected_Stars_In_Disciplines[3, 7] + _FirstPersonController.Collected_Stars_In_Disciplines[3, 8] + _FirstPersonController.Collected_Stars_In_Disciplines[3, 9]);
             }
         }
 
